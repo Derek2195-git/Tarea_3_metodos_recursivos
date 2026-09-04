@@ -1,61 +1,31 @@
 import java.util.Arrays;
 
 public class ManejoRecursividad {
-    // La mayoria de aqui menos la de conejos deben ser borrados
-    public String serieN0(int n) {
-        if (n == 0) {
-            return n + "";
+
+
+    /**
+     * Metodo el cual usa la recursividad para obtener
+     * cual es el valor más grande de un arreglo
+     * @param arreglo Arreglo de numeros a revisar
+     * @return Valor más grande encontrado en el arreglo
+     */
+    public int obtenerValorMayorArreglo(int[] arreglo) {
+        if (arreglo.length == 1) {
+            return arreglo[0];
         } else {
-            return String.valueOf(n) + ", " + serieN0(n-1);
-        }
-
-    }
-
-    public String serie0N(int n) {
-        if (n == 0) {
-            return n + "";
-        } else {
-            return serie0N(n-1) + ", " + n;
-        }
-    }
-
-    public String serieFibonacci(int n) {
-        if (n == 0) {
-            return String.valueOf(n);
-        } else if (n == 2) {
-            return serieFibonacci(1);
-        } else {
-            /**
-             * 5 valores de la serie fibonacci
-             * 0, 1, 1, 2, 3
-             * 0 y 0
-             * 0 y 1
-             * serieFibonacci(1, 1+0)
-             * 1 y 1
-             * serieFibonacci(1, 1+1)
-             * 1 y 2
-             * serieFibonacci(2, 2+1)
-             * 2 y 3
-             */
-
-            return serieFibonacci(n-1) + " " + n;
+            int[] arregloRecortado = Arrays.stream(arreglo).skip(1).toArray();
+            int valorAComparar = obtenerValorMayorArreglo(arregloRecortado);
+            return arreglo[0] > valorAComparar ? arreglo[0] : valorAComparar;
         }
     }
 
-    public int sumasSucesivas(int numero1, int numero2) {
-        if (numero2 == 0) {
-            return 0;
-        } else {
-            return numero1 + sumasSucesivas(numero1, numero2 - 1);
-        }
-
-    }
-
-    // Acabada al parecer
+    /**
+     * Metodo el cual usa la recursividad para contar
+     * la cantidad de orejas de un grupo de conejos
+     * @param numeroConejos Numero que contamos
+     * @return Suma de la cantidad de orejas de cada conejo
+     */
     public int contarOrejas(int numeroConejos) {
-        // Un conejo tiene 2 orejas
-        // si no hay mas conejos, retornamos 0
-        // Si hay más de un conejo, usamos recursividad
         if (numeroConejos == 0) {
             return numeroConejos;
         } else {
@@ -63,14 +33,19 @@ public class ManejoRecursividad {
         }
     }
 
-    public int obtenerValorMayorArreglo(int[] arreglo) {
-
-        if (arreglo.length == 1) {
-            return arreglo[0];
-        } else {
-            int[] arregloRecortado = Arrays.stream(arreglo).skip(1).toArray();
-            int valorAComparar = obtenerValorMayorArreglo(arregloRecortado);
-            return arreglo[0] > valorAComparar ? arreglo[0] : valorAComparar;
+    /**
+     * Metodo el cual usa la recursividad para obtener la
+     * suma de todos los números encontrados en una cadena.
+     * @param cadena Cadena en la que se buscará cada digito
+     * @return Suma de los digitos que se encontrarón en la cadena
+     */
+    public int obtenerSumaDigitosCadena(String cadena) {
+        if (cadena.isEmpty()) return 0;
+        else {
+            String cadenaRecortada = cadena.substring(1);
+            char primerCaracterCadena = cadena.charAt(0);
+            return (Character.isDigit(primerCaracterCadena) ? (primerCaracterCadena - 48)
+                    : 0) + obtenerSumaDigitosCadena(cadenaRecortada);
         }
     }
 
