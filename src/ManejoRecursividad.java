@@ -3,7 +3,7 @@ import java.util.Arrays;
 public class ManejoRecursividad {
 
     /**
-     * Ejecuta una búsqueda recursiva en un arreglo para encontrar el valor X en un arreglo.
+     * Hace una búsqueda recursiva en un arreglo para encontrar el valor X en un arreglo.
      * @param arreglo de números a evaluar.
      * @param x es el valor a encontrar.
      * @param indice es la posición actual en el arreglo.
@@ -16,7 +16,6 @@ public class ManejoRecursividad {
         if (arreglo[indice] == x) {
             return indice;
         }
-
         return encontrarValorArreglo(arreglo, x, indice + 1);
     }
 
@@ -34,6 +33,23 @@ public class ManejoRecursividad {
             int valorAComparar = obtenerValorMayorArreglo(arregloRecortado);
             return arreglo[0] > valorAComparar ? arreglo[0] : valorAComparar;
         }
+    }
+
+    /**
+     * Indentifica por recursividad si un caracter de una cadena está situada antes de otro caracter.
+     * @param cadena de texto a evaluar.
+     * @param c1 es el caracter anterior en la cadena.
+     * @param c2 es el caracter posterior en la cadena.
+     * @return
+     */
+    public boolean encontrarPrimerChar(String cadena, char c1, char c2) {
+        if (cadena.length() < 2) {
+            return false;
+        }
+        if (cadena.charAt(0) == c1 && cadena.charAt(1) == c2) {
+            return true;
+        }
+        return encontrarPrimerChar(cadena.substring(1), c1, c2);
     }
 
     /**
@@ -65,10 +81,5 @@ public class ManejoRecursividad {
                     ? (primerCaracterCadena - 48) : 0) + obtenerSumaDigitosCadena(cadenaRecortada);
         }
     }
-
-
-
-
-
 
 }

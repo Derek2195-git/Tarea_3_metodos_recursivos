@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Random;
 
 public class Main {
@@ -13,12 +14,13 @@ public class Main {
             else cadena += arreglo[i] + ", ";
         }
 
-        int[] numeros = {10, 25, 4, 8, 15, 30};
-        int x = 10;
+        int[] numeros = {55, 25, 2, 8, 67, 40};
+        int x = 8;
 
-        int indiceEncontrado = recursividad.encontrarValorArreglo(numeros, x, 0);
-
-        System.out.println("El valor " + x + " se encuentra en el índice: " + indiceEncontrado);
+//        System.out.println("Teniendo el siguiente arreglo de números: " + Arrays.toString(numeros));
+//        int indiceEncontrado = recursividad.encontrarValorArreglo(numeros, x, 0);
+//
+//        System.out.println("El valor " + x + " se encuentra en el índice: " + indiceEncontrado);
 
         //System.out.println("El mayor valor de este arreglo " + cadena + "} es el siguiente: " + recursividad.obtenerValorMayorArreglo(arreglo));
 
@@ -26,6 +28,12 @@ public class Main {
             int conejos = rnd.nextInt(1, 25);
             //System.out.println("Contando el número de orejas de " + conejos + " conejos: " + recursividad.contarOrejas(conejos) + " orejas.");
         }
+
+        String cad = "prueba";
+        char c1 = 'b';
+        char c2 = 'a';
+        System.out.println("Usando la cadena (" + cad + "), ¿" + c1 + " aparece inmediatamente antes de " + c2 + "?");
+        System.out.println(recursividad.encontrarPrimerChar(cad, c1, c2));
 
         //cadena = "Vivo en el número 1365, calle Benito Juarez";
 
