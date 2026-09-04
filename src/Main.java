@@ -29,10 +29,10 @@ public class Main {
             //System.out.println("Contando el número de orejas de " + conejos + " conejos: " + recursividad.contarOrejas(conejos) + " orejas.");
         }
 
-        String cad = "prueba";
-        char c1 = 'b';
+        String cad = "prueba con una cadena más larga";
+        char c1 = 'n';
         char c2 = 'a';
-        System.out.println("Usando la cadena (" + cad + "), ¿" + c1 + " aparece inmediatamente antes de " + c2 + "?");
+        System.out.println("Usando la cadena (" + cad + "), ¿una " + c1 + " aparece inmediatamente antes de una " + c2 + "?");
         System.out.println(recursividad.encontrarPrimerChar(cad, c1, c2));
 
         //cadena = "Vivo en el número 1365, calle Benito Juarez";
