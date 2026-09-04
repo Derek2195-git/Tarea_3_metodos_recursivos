@@ -44,7 +44,6 @@ public class ManejoRecursividad {
         else {
             String cadenaRecortada = cadena.substring(1);
             char primerCaracterCadena = cadena.charAt(0);
-            System.out.println(primerCaracterCadena - 48);
             return ((primerCaracterCadena - 48 >= 0 && primerCaracterCadena - 48 <= 9)
                     ? (primerCaracterCadena - 48) : 0) + obtenerSumaDigitosCadena(cadenaRecortada);
         }
