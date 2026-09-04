@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class ManejoRecursividad {
     // La mayoria de aqui menos la de conejos deben ser borrados
     public String serieN0(int n) {
@@ -58,6 +60,17 @@ public class ManejoRecursividad {
             return numeroConejos;
         } else {
             return contarOrejas(numeroConejos - 1) + 2;
+        }
+    }
+
+    public int obtenerValorMayorArreglo(int[] arreglo) {
+
+        if (arreglo.length == 1) {
+            return arreglo[0];
+        } else {
+            int[] arregloRecortado = Arrays.stream(arreglo).skip(1).toArray();
+            int valorAComparar = obtenerValorMayorArreglo(arregloRecortado);
+            return arreglo[0] > valorAComparar ? arreglo[0] : valorAComparar;
         }
     }
 
