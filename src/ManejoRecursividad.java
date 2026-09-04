@@ -2,6 +2,23 @@ import java.util.Arrays;
 
 public class ManejoRecursividad {
 
+    /**
+     * Ejecuta una búsqueda recursiva en un arreglo para encontrar el valor X en un arreglo.
+     * @param arreglo de números a evaluar.
+     * @param x es el valor a encontrar.
+     * @param indice es la posición actual en el arreglo.
+     * @return El índice en donde se encuentra el arreglo, -1 si no lo encontró.
+     */
+    public int encontrarValorArreglo(int[] arreglo, int x, int indice) {
+        if (indice >= arreglo.length) {
+            return -1;
+        }
+        if (arreglo[indice] == x) {
+            return indice;
+        }
+
+        return encontrarValorArreglo(arreglo, x, indice + 1);
+    }
 
     /**
      * Metodo el cual usa la recursividad para obtener
